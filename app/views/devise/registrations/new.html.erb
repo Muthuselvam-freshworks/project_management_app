@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrations</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+    
+    
+    </style>
+    
+</head>
+<body>
+<!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-lg">
+    <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started today</h1>
+
+    <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt dolores deleniti
+      inventore quaerat mollitia?
+    </p>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8' }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <p class="text-center text-lg font-medium">Sign up for your account</p>
+
+      <div class="field">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, class: 'w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm', placeholder: 'Enter first name', autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, class: 'w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm', placeholder: 'Enter last name' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: 'w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm', placeholder: 'Enter email', autocomplete: 'email' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, class: 'w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm', placeholder: 'Enter password', autocomplete: 'new-password' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, class: 'w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm', placeholder: 'Confirm password', autocomplete: 'new-password' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white' %>
+      </div>
+      <%= render "devise/shared/links" %>
+    <% end %>
+    
+  </div>
+</div>
+
+</body>
+</html>

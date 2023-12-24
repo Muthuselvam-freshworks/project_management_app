@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+    .logout_btn {
+        position:relative;
+        top:-10px;
+       font-size:5px;
+       left:27px;
+       opacity:0;
+    }
+    body{
+        overflow:hidden;
+        background-color:#1E1F21;
+       
+    }
+    .w{
+        width:155%
+    }
+    .ml-64{
+        margin-left:22rem;
+    }
+    .h-80{
+        height:30rem;
+    }
+    
+    </style>
+    
+</head>
+<body>
+<%= render "devise/shared/navbar"%>
+
+<div class="mt-40 mx-32 grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8">
+  <div class="h-40 rounded-lg bg-gray-200"></div>
+  <div class="h-40 rounded-lg bg-gray-200"></div>
+  <div class="h-40 rounded-lg bg-gray-200"></div>
+  <div class="h-40 rounded-lg bg-gray-200"></div>
+</div>
+
+<div class="mt-24 ml-64 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+  <div class="h-80 rounded-lg bg-gray-200 ">
+  
+   <div style="padding-top:25px; padding-left:25px;"> <h1>Projects </h1>
+
+   <a
+   class="inline-block rounded-full border border-indigo-600 p-3 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
+   href="/project/all" style="position:relative;
+   top:-30px;left:370px;right:0px;"
+ >
+   <span class="sr-only"> Download </span>
+ 
+   <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+ </a>
+
+<a
+  class="inline-block rounded-full border border-indigo-600 p-3 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
+  href="<%= new_project_path %>" style="position:relative;
+  top:-30px;left:370px;right:0px;"
+>
+  <span class="sr-only"> Download </span>
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+</a>
+
+   </div>
+  
+
+  
+  </div>
+  <div class="h-80 rounded-lg bg-gray-200"></div>
+</div>
+
+</body>
+
+</html>
