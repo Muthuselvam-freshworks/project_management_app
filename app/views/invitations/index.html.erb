@@ -1,0 +1,7 @@
+<h2>Your Invitations</h2>
+
+<% @invitations.each do |invitation| %>
+  <%= "#{invitation.sender.email} has invited you to join #{invitation.project.project_name}" %>
+  <%= button_to 'Accept', accept_invitation_path(invitation), method: :post %>
+  <%= button_to 'Reject', reject_invitation_path(invitation), method: :delete %>
+<% end %>

@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
   def new
     @project = current_user.projects.build
   end
+  def show
+    @project = Project.find(params[:id])
+  @invitation = @project.invitations.build
+  end
 
   def create
     @project = current_user.projects.build(project_params)
@@ -19,7 +23,21 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # Other actions: show, edit, update, destroy
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+
+    if @project.update(project_params)
+      redirect_to project_path(@project), notice: 'Project was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  
 
   private
 

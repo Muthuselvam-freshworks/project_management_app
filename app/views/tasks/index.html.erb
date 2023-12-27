@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/@freshworks/crayons@v4/css/crayons-min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
     <style>
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
@@ -27,6 +32,29 @@ a{
   --black1: #222;
   --black2: #999;
 }
+
+.dropdown{
+    margin-top:-17px;
+}
+
+ 
+.dropdown-btn {
+    border: none;
+    background-color: transparent;
+    color: #f8014d;
+    padding: 3px 30px;
+    border-radius: 20px;
+    transition: .3s;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.dropdown-btn:hover {
+    background-color: #f8014d;
+    color: #fff;
+}
+
+
+
 
 body {
   min-height: 100vh;
@@ -131,7 +159,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 35px 10px;
+  border-bottom: 1px solid #ccc; 
 }
 
 .toggle {
@@ -198,7 +227,7 @@ body {
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 30px;
 }
 
@@ -208,8 +237,19 @@ body {
   padding: 30px;
   border-radius: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+.cardBox .card-2 {
+    height:48px;
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  align-item:center;
+  justify-content: left;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
@@ -231,14 +271,8 @@ body {
   color: var(--black2);
 }
 
-.cardBox .card:hover {
-  background: var(--red);
-}
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx {
-  color: var(--white);
-}
+
+
 
 /* ================== Order Details List ============== */
 .details {
@@ -246,7 +280,7 @@ body {
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr ;
   grid-gap: 30px;
   /* margin-top: 10px; */
 }
@@ -254,7 +288,7 @@ body {
 .details .recentOrders {
   position: relative;
   /* display: grid; */
-  min-height: 750px;
+  min-height: 970px;
   background: var(--white);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
@@ -290,6 +324,7 @@ body {
 .details .recentOrders table tr {
   color: var(--black1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  
 }
 .details .recentOrders table tr:last-child {
   border-bottom: none;
@@ -318,6 +353,7 @@ body {
   font-size: 14px;
   font-weight: 500;
 }
+
 
 .status.return {
   padding: 2px 4px;
@@ -368,13 +404,185 @@ body {
 .recentCustomers table tr:hover {
   background: var(--red);
   color: var(--white);
+  
 }
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
-}</style>
+}
+
+.material-symbols-outlined{
+    position: relative;
+    top: 3px;
+    left: 33px;
+    color: #f8014d;
+}
+.edit-btn{
+padding-left:800px;
+gap:10px;
+
+}
+.dd-share{
+    margin-left:25px;
+    margin-top:0px;
+}
+
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../images/wallhaven-eoxve8_2560x1440.png);
+  background-color: #4b4b55;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+}
+
+#blur.active{
+    filter: blur(10px);
+    z-index:1;
+}
+
+body.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+.popup{
+  background-color: #ffffff;
+  width: 420px;
+  height: 250px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  /* display: none; */
+  visibility: hidden;
+  font-family: “Poppins”,sans-serif;
+  text-align: center;
+  z-index:4;
+}
+   #popup.active {
+visibility: visible;
+transition: 0.5s;
+overflow-y: hidden;
+z-index:5;
+}
+.popup button{
+  display: block;
+  margin:  0 0 20px auto;
+
+  font-size: 30px;
+  color: #ffffff;
+  background: #f9004d;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.popup-content {
+  text-align: center;
+}
+
+.popup-content h2 {
+  margin-bottom: 20px;
+}
+
+.popup .email-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.popup .send-button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #007bff; /* Set your desired button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup .send-button:hover {
+  background-color: #0056b3; /* Set your desired button hover color */
+}
+
+.custom-modal-body {
+  padding: 20px;
+}
+
+.custom-form-group {
+  margin-bottom: 15px;
+}
+
+.custom-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.custom-form-control {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.custom-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.custom-btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.custom-btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.custom-modal-footer {
+  padding: 10px;
+  text-align: right;
+}
+.numbers {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+fw-button::part(internal-button) {
+  /* Your styles for the internal button go here */
+  background-color: blue;
+  color: white;
+}
+fw-button button{
+    background-color: white;
+    border-color: #f8014d;
+    color: #f8014d;
+}
+
+</style>
 </head>
 
 <body>
+
+
+<div class="hero" id="blur">
     <!--  Navigation  -->
     <div class="container">
         <div class="navigation">
@@ -389,7 +597,7 @@ body {
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="/dashboard">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -439,6 +647,7 @@ body {
             </ul>
         </div>
 
+       
         <!-- Main  -->
         <div class="main">
             <div class="topbar">
@@ -452,6 +661,7 @@ body {
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
+                
 
                 <div class="user" style="visibility: hidden;">
                     <img src="assets/imgs/customer01.jpg" alt="">
@@ -461,119 +671,202 @@ body {
 
             <!-- Cards  -->
             <div class="cardBox">
+            <% if @project %>
                 <div class="card">
                     <div>
-                        <div class="numbers" id="total_users">0</div>
-                        <div class="cardName">Total Projects</div>
-                    </div>
-
-                    <div class="iconBx">
-                        
+                        <div class="numbers" id="total_users"><%= @project.project_name %></div>
                     </div>
                 </div>
+                <% end %>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers" id="total_active">0</div>
-                        <div class="cardName">Active Projects</div>
-                    </div>
+                
+                <div class="card-2">
+               
+        <div class="dropdown">
+        <span class="material-symbols-outlined">
+            overview
+            </span>
+            <button class="dropdown-btn"> <a href="<%= project_path(@project)%>/overview">Overview</a></button>
+        </div>
 
-                    <div class="iconBx">
-                        
-                    </div>
-                </div>
+        
+        <div class="dropdown">
+        <span class="material-symbols-outlined">
+            task
+            </span>
+            <button class="dropdown-btn"><a href="<%= project_path(@project) %>/tasks">Tasks</a></button>
+        </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers" id="today_login">0</div>
-                        <div class="cardName">Task Assigned To Me</div>
-                    </div>
+        
+        <div class="dropdown">
+        <span class="material-symbols-outlined">
+            lists
+            </span>
+            <button class="dropdown-btn">Board</button>
+        </div>
 
-                    <div class="iconBx">
-                      
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers" id="total_booking">0</div>
-                        <div class="cardName">Task Overdue</div>
-                    </div>
-
-                    <div class="iconBx">
-                      
-                    </div>
-                </div>
+        
+        <div class="dropdown">
+        <span class="material-symbols-outlined">
+            calendar_today
+            </span>
+            <button class="dropdown-btn">Calendar</button>
+        </div>
+                 </div>
             </div>
 
-            <!-- Order Details List  -->
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Your Projects</h2>
-                        <a href="<%= new_project_path %>" class="btn">+</a>
+                        <h2>All Tasks</h2>
+                        <fw-button modal-trigger-id='modal-slider'  color="black">+</fw-button>
+                        
                     </div>
 
                     <table id="recent_book">
                         <thead>
                             <tr>
-                                <td>Project Name</td>
+                                <td>Name</td>
                                 <td>Description</td>
-                                <td>Status</td>
+                                <td>Project</td>
+                                <td>User</td>
+                                <td>Due date</td>
+                                <td>Priority</td>
+                                <td>Action</td>
                             </tr>
                         </thead>
                         <tbody>
-                        <% @projects_created_by_user.each do |project| %>
-                          <tr onclick="window.location='<%= project_path(project) %>/overview'" style="cursor: pointer;">
-                            <td id="name"><%= project.project_name %></td>
-                            <td id="date"><%= project.description %></td>
+                        <% @tasks.each do |task| %>
+                            <tr data-href="<%= edit_project_task_path(task.project, task) %>">
+                            <td><%= task.name %></td>
+                            <td><%= task.description %></td>
+                            <td><%= task.project_id %></td>
+                            <td><%= task.user_id %></td>
+                            <td><%= task.due_date.to_date %></td>
+                            <td><%= task.priority %></td>
                             <td>
-                              <span class="status delivered">Active</span>
-                            </td>
-                          </tr>
-                        <% end %>
-                      </tbody>
+          <fw-button modal-trigger-id="<%= "modal-slider-#{task.id}" %>" color="black" >Show</fw-button>
+          <fw-modal id="<%= "modal-slider-#{task.id}" %>" slider="true">
+            <fw-modal-title>
+              <span>Task Details</span>
+            </fw-modal-title>
+            <fw-modal-content>
+            <%= render partial: 'edit_form', locals: { task: task } %>
+            </fw-modal-content>
+            <fw-modal-footer>
+              <fw-button>Close</fw-button>
+            </fw-modal-footer>
+          </fw-modal>
+        </td>
+                            </tr>
+                            <% end %>
+                            
+                        </tbody>
                     </table>
                 </div>
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Joined Projects</h2>
-                    </div>
-
-                    <table id="recent_cus">
-                    <thead>
-                    <tr>
-                        <td>Project Name</td>
-                        <td>Description</td>
-                        <td>Status</td>
-                    </tr>
-                </thead>
-                <tbody>
-                <% @projects_joined_by_user.each do |project| %>
-                    <tr onclick="window.location='<%= project_path(project) %>/overview'" style="cursor: pointer;">
-                    <td id="name"><%=  project.project_name %></td>
-                    <td id="date"><%= project.description %></td>
-                    <td>
-                      <span class="status delivered">Active</span>
-                    </td>
-                    </tr>
-                    <% end %>
-                </tbody>
-                    </table>
-                </div>
+                
             </div>
         </div>
     </div>
 
-    <script src="../Assests/js/admindashboard.js"></script>
+    <fw-modal id='modal-slider' slider='true' >
+    <fw-modal-title>
+      <span>New Task</span>
+    </fw-modal-title>
+    <fw-modal-content >
+    <%= form_with(model: [ @project, @task], local: true) do |form| %>
+        <% if @task.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@task.errors.count, 'error') %> prohibited this task from being saved:</h2>
+            <ul>
+              <% @task.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :due_date %>
+          <%= form.date_field :due_date %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :user_id %>
+          <%= form.collection_select :user_id, @project.users, :id, :email, prompt: true %>
+        </div>
+        <div class="field">
+        <%= form.label :priority %>
+        <%= form.select :priority, options_for_select([['High', 'high'], ['Medium', 'medium'], ['Low', 'low']]) %>
+      </div>
+      
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+      
+    </fw-modal-content>
+    <fw-modal-footer>
+      <fw-button><%= link_to 'Back', dashboard_path %></fw-button>
+    </fw-modal-footer>
+  </fw-modal>
+    <script type="module" src="https://unpkg.com/@freshworks/crayons@v4/dist/crayons/crayons.esm.js"></script>
+<script nomodule src="https://unpkg.com/@freshworks/crayons@v4/dist/crayons/crayons.js"></script>
 
-  
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
-       
+  
 
+  document.addEventListener('DOMContentLoaded', function () {
+  // Your custom JavaScript code here
+  document.querySelector('fw-modal#modal-slider').open();
+});
+// Close the modal
+document.addEventListener('DOMContentLoaded', function () {
+document.querySelector('fw-modal#modal-slider').close();
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Open the modal
+  document.querySelectorAll('[modal-trigger-id]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var modalId = this.getAttribute('modal-trigger-id');
+      var modal = document.querySelector(`fw-modal#${modalId}`);
+      modal.open();
+    });
+  });
+
+  // Close the modal
+  document.querySelectorAll('fw-modal').forEach(function (modal) {
+    modal.addEventListener('fw-modal:close', function () {
+      this.close();
+    });
+  });
+
+  
+  document.querySelectorAll('fw-modal[slider="true"]').forEach(function (modal) {
+    modal.addEventListener('fwModalOpen', function () {
+      const taskId = modal.id.split('-')[2];
+      const form = document.getElementById(`edit-form-${taskId}`);
+      const action = form.action.replace('/tasks/', `/tasks/${taskId}/edit`);
+      form.action = action;
+    });
+  });
+});
     </script>
+   
 </body>
 
 </html>
